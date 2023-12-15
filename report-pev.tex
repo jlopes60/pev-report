@@ -9,26 +9,26 @@
 %%------------------------------- preamble ------------------------------------
 
 %% comment next for EN
-\usepackage[portuges]{babel}      % PT
+\usepackage[portuges]{babel}      % language PT 
 \usepackage[utf8]{inputenc}       % accents
 \usepackage[T1]{fontenc}          % PS fonts
 \usepackage{newtx}                % do not use CM fonts
-\usepackage{amsmath}  
-\usepackage{setspace}
-\usepackage{graphicx}
-\usepackage[normalem]{ulem}
-\usepackage{caption}
+\usepackage{amsmath}              % multi-line and other mathematical statements,
+\usepackage{setspace}             % setting the spacing between lines
+\usepackage{graphicx}             % go far beyond what the graphics package
+\usepackage[normalem]{ulem}       % various types of underlining
+\usepackage{caption}              % rotating captions, sideways captions, etc.
 \usepackage{float}                % tables and figures in the multi-column environment 
-\usepackage{subcaption}				
-\usepackage{longtable}
-\usepackage{multirow}
-\usepackage[table]{xcolor}
+\usepackage{subcaption}			  % for subfigures and the like
+\usepackage{longtable}            % tables that continue to the next page
+\usepackage{multirow}             % tabular cells spanning multiple rows
+\usepackage[table]{xcolor}        % driver-independent color extensions
 \usepackage{lipsum}               % loren dummy text
 \setlength{\marginparwidth}{2cm}  % todonotes' requirements
 \usepackage{todonotes}            % todo's
-\usepackage{chicago}              % bibliography style
+\usepackage{chicago}              % a bibliography style
 
-%% geometry 
+%% document dimensions
 \usepackage[a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm,
    headheight=6mm, footskip=12mm]{geometry}
 \setlength{\parindent}{0em}
@@ -95,9 +95,6 @@
 %% path to the figures directory
 \graphicspath{{figures/}}
 
-%% hyphenation hints, if needed
-%\hyphenation{In-fra-es-tru-tu-ras}
-
 %% macros, to be updated as needed
 \newcommand{\school}{Faculdade de Engenharia da Universidade do Porto}
 \newcommand{\degree}{Licenciatura em Engenharia Informática e Computação}
@@ -107,23 +104,25 @@
 \newcommand{\supervisor}{Nome do Supervisor}
 \newcommand{\tutor}{Prof.\ João Correia Lopes}
 
-%% my macros
+%% my other macros, if needed
 \newcommand{\windspt}{\textsf{WindsPT\/}}
 \newcommand{\windscannerpt}{\emph{Windscanner.PT\/}}
 \newcommand{\class}[1]{{\normalfont\slshape #1\/}}
 \newcommand{\svg}{\class{SVG}}
 
 %% my environments for infos
-\newenvironment{info}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO:} \begin{em} #1}
+\newenvironment{info}[1]{\vspace*{6mm}\color{blue}
+                            [ \textbf{INFO:} \begin{em} #1}
                         {\vspace*{3mm}\end{em} ]}
-\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO (elemento opcional):} \begin{em} #1}
+\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}
+                            [ \textbf{INFO (elemento opcional):} \begin{em} #1}
                         {\vspace*{3mm}\end{em} ]}
 
 %%------------------------------- document-------------------------------------
 
 \begin{document}
 
-%% preamble with roman page numbers
+%% preamble with (reseted) roman page numbers
 \pagenumbering{roman}\setcounter{page}{1}
 
 %%------------------------------- cover page ----------------------------------
@@ -133,10 +132,14 @@
 
 \vspace{-15mm}
 {\Large \textbf{\textsc{\school}}}\\[28mm]
+
 {\huge \textbf{\projtitle}}\\[8mm]
 {\huge \textbf{\company}}\\[30mm]
+
 {\Large \textbf{\projauthor}}\\[56mm]
+
 \includegraphics[width=70mm]{uporto-feup.pdf}\\[30mm]
+
 {\large \degree}\\[12mm]
 {\large Supervisor: \supervisor}\\[4mm]
 {\large Tutor: \tutor}\\[12mm]
@@ -170,9 +173,9 @@ Publicação'', secção:
 
 \todo[inline]{Escrever o Resumo, mas só no fim.}
 
-\vspace{\fill}
-{\Large \textbf{Palavras-chave}:} palavra1, palavra2, palavra3, palavra4
-\vspace*{24mm}
+%\vspace{\fill}
+%{\Large \textbf{Palavras-chave}:} palavra1, palavra2, palavra3, palavra4
+%\vspace*{24mm}
 
 %%------------------------------- Acknowledgments -----------------------------
 
@@ -239,6 +242,7 @@ WWW      & World Wide Web
 \begin{infoopt}
 Justifica-se se estes elementos (acrónimos, unidades, símbolos)
 ocorrerem com grande frequência no relatório.
+
 Quando ocorrerem pela primeira vez no texto deve apresentar-se a
 respetiva definição.
 Por exemplo: Application Programming Interface (ADT) é uma \ldots 
@@ -327,11 +331,12 @@ Indicar os objetivos do trabalho e os resultados esperados.
 
 %%------------------------------- DELETEME
 
+\newpage  % don't do this
 \section*{Exemplos}
 
 \begin{info}
   São ilustradas de seguida algumas partes do documento.
-
+  
   Esta secção não aparece no documento final!
 \end{info}
 
@@ -389,7 +394,7 @@ Como exemplo, a Figura~\ref{fig:campus} (retirada de
 
 \begin{figure}
 \centering
-\includegraphics[width=0.62\textwidth]{campus}
+\includegraphics[width=0.72\textwidth]{campus}
 \caption{Fotografia aérea do Campus da FEUP.} \label{fig:campus}
 \end{figure}
 
@@ -410,10 +415,16 @@ exemplo, a Figura~\ref{fig:natal}.
 
 \lipsum[4]
 
+\begin{info}
+As tabelas devem flutuar livremente na página e ser referidas e
+descritas no texto, com as fontes devidamente explicitadas, para
+evitar o plágio.
+\end{info}
+
 A Tabela~\ref{tab:feup} (excerto adaptado de ``A FEUP em números'', 2011)
 serve para exemplificar como mostrar alguns valores que neste caso têm
 a ver com alguns dados numéricos associados a recursos e investimentos
-da FEUP no ano de 2011.
+da FEUP no ano de 2011. 
 
 \lipsum[4]
 
