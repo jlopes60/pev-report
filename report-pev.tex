@@ -113,7 +113,7 @@
 %% my environments for infos
 \newenvironment{info}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO:} \begin{em} #1}
                         {\vspace*{3mm}\end{em} ]}
-\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO (elemento opcional):} \begin{em} #1}
+\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}    [ \textbf{INFO (elemento opcional):} \begin{em} #1}
                         {\vspace*{3mm}\end{em} ]}
 
 %%------------------------------- document-------------------------------------
@@ -288,9 +288,8 @@ Para saber mais consulte o tutorial online
 
 \chapter{Introdução}
 
-\pagestyle{fancy}
-% reset and change to roman page numbers
-\pagenumbering{arabic}\setcounter{page}{1}
+\pagestyle{fancy}                           % display header & footer
+\pagenumbering{arabic}\setcounter{page}{1}  % reset page and roman numbers
 
 \begin{info}
 Contextualização sucinta do assunto do relatório, fazendo-se
