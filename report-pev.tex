@@ -120,7 +120,7 @@
 
 \begin{document}
 
-%% preamble with (reseted) roman page numbers
+%% preamble page numbers with roman numerals
 \pagenumbering{roman}\setcounter{page}{1}
 
 %%------------------------------- cover page ----------------------------------
@@ -288,8 +288,10 @@ Para saber mais consulte o tutorial online
 
 \chapter{Introdução}
 
-\pagestyle{fancy}                           % display header & footer
-\pagenumbering{arabic}\setcounter{page}{1}  % reset page and roman numbers
+%% display headers & footers
+\pagestyle{fancy}
+%% main page numbers with arabic numerals
+\pagenumbering{arabic}\setcounter{page}{1}
 
 \begin{info}
 Contextualização sucinta do assunto do relatório, fazendo-se
