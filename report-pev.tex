@@ -129,18 +129,24 @@
 \center
 
 \vspace{-15mm}
-{\Large \textbf{\textsc{\school}}}\\[28mm]
+{\large \textbf{\textsc{\school}}}\\
+
+\vfill
 
 {\huge \textbf{\projtitle}}\\[8mm]
-{\huge \textbf{\company}}\\[30mm]
+{\Large \textbf{\company}}\\[28mm]
 
-{\Large \textbf{\projauthor}}\\[56mm]
+{\Large \textbf{\projauthor}}\\  % [56mm]
 
-\includegraphics[width=70mm]{uporto-feup.pdf}\\[30mm]
+\vfill
 
-{\large \degree}\\[12mm]
-{\large Supervisor: \supervisor}\\[4mm]
-{\large Tutor: \tutor}\\[12mm]
+\includegraphics[width=52mm]{uporto-feup.pdf}
+
+\vfill
+
+{\large \degree}\\[10mm]
+{\large \textbf{Supervisor}: \supervisor}\\[2mm]
+{\large \textbf{Tutor}: \tutor}\\[8mm]
 
 %\renewcommand{\today}{15 de dezembro de 2023}
 \today
@@ -328,10 +334,12 @@ realizado (qual é o problema abordado e porque é que é importante).
 Indicar os objetivos do trabalho e os resultados esperados.
 \end{info}
 
-%%------------------------------- DELETEME
+%%------------------------------- DELETEME ------------------------------------
 
 \newpage  % don't do this
 \section*{Exemplos}
+
+\todo[inline]{Remover a secção ``Exemplos'' quando já não for necessária.}
 
 \begin{info}
   São ilustradas de seguida algumas partes do documento.
@@ -389,7 +397,7 @@ evitar o plágio.
 Como exemplo, a Figura~\ref{fig:campus} (retirada de
 \url{www.fe.up.pt}) mostra o \emph{campus} da FEUP. 
 
-\lipsum[4]
+\lipsum[1]
 
 \begin{figure}
 \centering
@@ -397,14 +405,14 @@ Como exemplo, a Figura~\ref{fig:campus} (retirada de
 \caption{Fotografia aérea do Campus da FEUP.} \label{fig:campus}
 \end{figure}
 
-\lipsum[4]
+\lipsum[2]
 
 \begin{info}
 Pode ser reservado espaço para colocar, no futuro, uma figura; por
 exemplo, a Figura~\ref{fig:natal}.
 \end{info}
 
-\lipsum[4]
+\lipsum[3]
 
 \begin{figure} [b]
   \centering
@@ -425,7 +433,7 @@ serve para exemplificar como mostrar alguns valores que neste caso têm
 a ver com alguns dados numéricos associados a recursos e investimentos
 da FEUP no ano de 2011. 
 
-\lipsum[4]
+\lipsum[5]
 
 \begin{table}
   \centering
@@ -443,7 +451,7 @@ da FEUP no ano de 2011.
   \label{tab:feup}
 \end{table}
 
-\lipsum[4]
+\lipsum[6]
 
 \subsection*{Citações}
 
@@ -491,7 +499,7 @@ Para saber mais sobre este assunto e ver exemplos, consulte o guia
 ``Evitar o plágio: boas práticas no uso da
 informação''\footnote{\url{https://feup.libguides.com/plagio/citar}}.  
 
-\lipsum[4]
+\lipsum[7]
 
 \subsection*{Código}
 
@@ -499,7 +507,7 @@ informação''\footnote{\url{https://feup.libguides.com/plagio/citar}}.
 De seguida é ilustrado como incluir código no documento.
 \end{info}
 
-\lipsum[4]
+\lipsum[8]
 
 \begin{lstlisting}[language=Python, caption=Python example]
 # take the users input
@@ -528,7 +536,7 @@ preâmbulo.
 
 O \windspt, retirado do \windscannerpt, usa o \svg\ \ldots
 
-\lipsum[2]
+\lipsum[9]
 
 \begin{info}
 As partes componentes subsequentes que constituem o corpo do texto
@@ -543,7 +551,6 @@ ou profundidade do estudo a desenvolver.
 
 Não é costume haver cabeçalhos de secções seguidas sem texto.
 \end{info}
-
 
 %%------------------------------- chapter ------------------------------------
 
@@ -628,26 +635,40 @@ especialistas, etc.).
 
 \chapter{Conclusões}
 
+\section{Resultados alcançados}
+
 \begin{info}
 Sumariar os \textbf{resultados alcançados} e as contribuições (em
 relação aos objetivos do trabalho).
 
 No caso de trabalho em grupo, clarificar as \textbf{contribuições
   individuais}, em termos qualitativos e quantitativos (percentagem).
-
-Refletir sobre as \textbf{lições aprendidas} (tendo em conta os
-objetivos de aprendizagem).
-
-Identificar limitações do trabalho realizado e ideias de melhorias e
-\textbf{trabalho futuro}. 
 \end{info}
 
+\lipsum[10]
+
+\section{Lições aprendidas}
+
+\begin{info}
+Refletir sobre as lições aprendidas (tendo em conta os objetivos de aprendizagem).
+\end{info}
+
+\lipsum[11]
+
+\section{Trabalho futuro}
+
+\begin{info}
+Identificar limitações do trabalho realizado e ideias de melhorias e trabalho futuro.
+\end{info}
+
+\lipsum[12]
 
 %%------------------------------- Bibliography --------------------------------
 
 \renewcommand{\bibname}{Referências bibliográficas}
 \bibliographystyle{chicago}
-\bibliography{refs}
+%\bibliographystyle{plain}
+\bibliography{refs}                       % entries are in the refs.bib file
 \addcontentsline{toc}{chapter}{\refname}  % add it to table of contents
 
 \begin{info}
