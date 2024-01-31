@@ -1,8 +1,8 @@
-%% PEV & other internshis' style for LaTeX2e
+%% LaTeX2e template for FEUP's PEV & other internshis
 %% 
 %% FEUP, JCL, Thu Dec 14 15:23:03 2023
 %%
-%% PLEASE send improvements to jlopes at fe.up.pt
+%% PLEASE send improvements to jlopes at fe.up.pt (up till 2028 :-)
 
 \documentclass[11pt,a4paper]{report}
 
@@ -133,8 +133,8 @@
 
 \vfill
 
-{\huge \textbf{\projtitle}}\\[8mm]
-{\Large \textbf{\company}}\\[28mm]
+{\Large \textbf{\projtitle}}\\[8mm]
+{\large \textbf{\company}}\\[28mm]
 
 {\Large \textbf{\projauthor}}\\
 
@@ -144,7 +144,7 @@
 
 \vfill
 
-{\large \degree}\\[10mm]
+{\large \degree}\\[8mm]
 {\large \textbf{Supervisor}: \supervisor}\\[2mm]
 {\large \textbf{Tutor}: \tutor}\\[8mm]
 
@@ -257,7 +257,7 @@ A lista de itens deve ser ordenada alfabeticamente.
 %%------------------------------- Glossary ------------------------------------
 
 \chapter*{Glossário}
-\addcontentsline{toc}{chapter}{Glossário}
+%\addcontentsline{toc}{chapter}{Glossário}
 
 \begin{description}
 \item[bash] \hfill \\
@@ -283,11 +283,10 @@ Recomenda-se a sua localização nos elementos iniciais, embora na
 normalização existente haja variantes, podendo também constar nos
 elementos finais.
 
-A lista de itens deve ser ordenada alfabeticamente.
-
+A lista de itens deve ser ordenada alfabeticamente\footnote{%
 Para saber mais consulte o tutorial online 
 ``\href{https://docs.google.com/document/d/1TDC1behVq8x7fQL4CcPEEh_np5GXviJevQxnQ9gbiJs/edit}
-{Guia de Apoio à Publicação}''.
+{Guia de Apoio à Publicação}''.}.
 \end{infoopt}
 
 %%------------------------------- chapter ------------------------------------
@@ -302,17 +301,16 @@ Para saber mais consulte o tutorial online
 \begin{info}
 Contextualização sucinta do assunto do relatório, fazendo-se
 referência ao âmbito e aos objetivos.
-Aqui se clarifica a motivação do trabalho apresentado e se explica a
+Aqui clarifica-se a motivação do trabalho apresentado e explica-se a
 abordagem adotada e a sua relação com trabalhos análogos, numa
 perspetiva genérica.
 Não se deve antecipar detalhes sobre o que é explicado nas secções
 posteriores. 
 Se for pertinente, pode-se indicar ainda qual o público a que se
-destina.
-
+destina\footnote{%
 Para saber mais consulte o tutorial online 
 ``\href{https://docs.google.com/document/d/1TDC1behVq8x7fQL4CcPEEh_np5GXviJevQxnQ9gbiJs/edit}
-{Guia de Apoio à Publicação}''.
+{Guia de Apoio à Publicação}''.}.
 \end{info}
 
 \section{Contexto}
@@ -339,7 +337,7 @@ Indicar os objetivos do trabalho e os resultados esperados.
 \newpage  % don't do this
 \section*{Exemplos}
 
-\todo[inline]{Remover a secção ``Exemplos'' quando já não for necessária.}
+\todo[inline]{Remover a secção ``Exemplos'', quando já não for necessária.}
 
 \begin{info}
   São ilustradas de seguida algumas partes do documento.
@@ -429,11 +427,11 @@ evitar o plágio.
 \end{info}
 
 A Tabela~\ref{tab:feup} (excerto adaptado de ``A FEUP em números'', 2011)
-serve para exemplificar como mostrar alguns valores que neste caso têm
+serve para exemplificar como mostrar alguns valores que, neste caso, têm
 a ver com alguns dados numéricos associados a recursos e investimentos
 da FEUP no ano de 2011. 
 
-\lipsum[5]
+\lipsum[4]
 
 \begin{table}
   \centering
@@ -548,7 +546,9 @@ Para saber mais consulte o tutorial online
 {Guia de Apoio à Publicação}''.
 Note-se que as seções aí indicadas podem ser adaptadas em função do tema
 ou profundidade do estudo a desenvolver.
+\end{info}
 
+\begin{info}
 Não é costume haver cabeçalhos de secções seguidas sem texto.
 \end{info}
 
@@ -594,8 +594,9 @@ Pode ser apresentado também através de tabela com progresso semanal.
 Neste capítulo é descrito o trabalho desenvolvido para alcançar os
 resultados esperados.
 
-No caso de um protótipo de software são apresentados os requisitos, a
-arquitetura da solução, o desenvolvimento e a validação do protótipo.
+Se for o caso de um protótipo de software, são apresentados os
+requisitos, a arquitetura da solução, o desenvolvimento e a validação
+do protótipo.
 
 \section{Requisitos}
 
@@ -635,17 +636,22 @@ especialistas, etc.).
 
 \chapter{Conclusões}
 
+Neste capítulo são sumariados os resultados alcançados e as lições
+aprendidas.
+Finalmente, são apresentadas as limitações do trabalho e são propostas
+melhorias e trabalho futuro. 
+
 \section{Resultados alcançados}
 
 \begin{info}
-Sumariar os \textbf{resultados alcançados} e as contribuições (em
+Sumariar os resultados alcançados e as contribuições (em
 relação aos objetivos do trabalho).
 
-No caso de trabalho em grupo, clarificar as \textbf{contribuições
-  individuais}, em termos qualitativos e quantitativos (percentagem).
+No caso de trabalho em grupo, clarificar as contribuições individuais,
+em termos qualitativos e quantitativos (percentagem). 
 \end{info}
 
-\lipsum[10]
+\lipsum[11]
 
 \section{Lições aprendidas}
 
@@ -653,15 +659,13 @@ No caso de trabalho em grupo, clarificar as \textbf{contribuições
 Refletir sobre as lições aprendidas (tendo em conta os objetivos de aprendizagem).
 \end{info}
 
-\lipsum[11]
+\lipsum[12]
 
 \section{Trabalho futuro}
 
 \begin{info}
 Identificar limitações do trabalho realizado e ideias de melhorias e trabalho futuro.
 \end{info}
-
-\lipsum[12]
 
 %%------------------------------- Bibliography --------------------------------
 
@@ -689,11 +693,13 @@ Os apêndices e os anexos contêm informação que complementa, apoia e
 clarifica o relatório e cuja inclusão no corpo principal do relatório
 interferiria com uma boa ordem de apresentação das ideias.
 
-Há uma diferença importante entre apêndices e anexos.
-
+Há uma diferença importante entre apêndices e anexos: ``No apêndice
+compilam-se apenas os documentos que são da autoria do autor do
+relatório, enquanto no anexo se compilam os documentos de autoria de
+outros autores que não o do relatório.''\footnote{%
 Para saber mais consulte o tutorial online 
 ``\href{https://docs.google.com/document/d/1TDC1behVq8x7fQL4CcPEEh_np5GXviJevQxnQ9gbiJs/edit}
-{Guia de Apoio à Publicação}''.
+{Guia de Apoio à Publicação}''.}
 \end{infoopt}
 
 %%------------------------------- the end. ------------------------------------
