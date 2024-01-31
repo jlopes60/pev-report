@@ -12,8 +12,8 @@
 \usepackage[portuges]{babel}      % language PT 
 \usepackage[utf8]{inputenc}       % accents
 \usepackage[T1]{fontenc}          % PS fonts
-\usepackage{newtx}                % do not use CM fonts
-\usepackage{amsmath}              % multi-line and other mathematical statements,
+\usepackage{newtxtext,newtxmath}  % do not use CM fonts
+\usepackage{amsmath}              % multi-line and other mathematical statements
 \usepackage{setspace}             % setting the spacing between lines
 \usepackage{graphicx}             % go far beyond what the graphics package
 \usepackage[normalem]{ulem}       % various types of underlining
@@ -113,7 +113,7 @@
 %% my environments for infos
 \newenvironment{info}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO:} \begin{em} #1}
                         {\vspace*{3mm}\end{em} ]}
-\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}    [ \textbf{INFO (elemento opcional):} \begin{em} #1}
+\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO (elemento opcional):} \begin{em} #1}
                         {\vspace*{3mm}\end{em} ]}
 
 %%------------------------------- document-------------------------------------
