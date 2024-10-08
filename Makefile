@@ -8,4 +8,4 @@ latexmk:
 clean: 
 	-rm  -f \
 	*.aux *.log *.nav *.log *.toc *.snm *.out *.dvi *.ps \
-	*latexmk *.fls *.bbl *.blg *.lof *.lot *.tdo
+	*latexmk *.bcf *.fls *.bbl *.blg *.lof *.lot *.tdo *.xml
