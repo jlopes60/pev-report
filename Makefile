@@ -3,7 +3,7 @@
 SRC=report-pev
 
 latexmk:
-	latexmk -pdf -bibtex -recorder -pvc $(SRC).tex
+	latexmk -pdf -recorder -pvc $(SRC).tex
 
 clean: 
 	-rm  -f \

@@ -2,14 +2,14 @@
 %% 
 %% FEUP, JCL, Thu Dec 14 15:23:03 2023
 %%
-%% PLEASE send improvements to jlopes at fe.up.pt (up till 2028 :-)
+%% PLEASE send improvements to jlopes at fe.up.pt (up till 2026 :-)
 
 \documentclass[11pt,a4paper]{report}
 
 %%------------------------------- preamble ------------------------------------
 
 %% comment next for EN
-\usepackage[portuges]{babel}      % language PT 
+\usepackage[portuges]{babel}      % language PT
 \usepackage[utf8]{inputenc}       % accents
 \usepackage[T1]{fontenc}          % PS fonts
 \usepackage{newtxtext,newtxmath}  % do not use CM fonts
@@ -26,7 +26,8 @@
 \usepackage{lipsum}               % loren dummy text
 \setlength{\marginparwidth}{2cm}  % todonotes' requirements
 \usepackage{todonotes}            % todo's
-\usepackage{chicago}              % a bibliography style
+\usepackage{csquotes}             % context sensitive quotation facilities
+\usepackage[backend=biber,authordate]{biblatex-chicago}  % Chicago Manual of Style
 
 %% document dimensions
 \usepackage[a4paper, left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=6mm,footskip=12mm]{geometry}
@@ -67,7 +68,8 @@
  showstringspaces=false,            % underline spaces within strings
  showtabs=false,                    % show tabs within strings adding particular underscores
  tabsize=2,                         % sets default tabsize to 2 spaces
- captionpos=b,                      % sets the caption-position to bottom
+ captionpos=t,                      % sets the caption-position to top
+ belowcaptionskip=12pt,             % space between caption and listing
  breaklines=true,                   % sets automatic line breaking
  breakatwhitespace=false,           % sets if automatic breaks should only happen at whitespace
  escapeinside={\%*}{*)},            % if you want to add a comment within your code
@@ -94,6 +96,9 @@
 %% path to the figures directory
 \graphicspath{{figures/}}
 
+%% bibliography file, must be in preamble
+\addbibresource{bibliography.bib}
+
 %% macros, to be updated as needed
 \newcommand{\school}{Faculdade de Engenharia da Universidade do Porto}
 \newcommand{\degree}{Licenciatura em Engenharia Informática e Computação}
@@ -106,7 +111,7 @@
 %% my other macros, if needed
 \newcommand{\windspt}{\textsf{WindsPT\/}}
 \newcommand{\windscannerpt}{\emph{Windscanner.PT\/}}
-\newcommand{\class}[1]{{\normalfont\slshape #1\/}}
+\newcommand{\class}[1]{{\normalfont\sffamily #1\/}}
 \newcommand{\svg}{\class{SVG}}
 
 %% my environments for infos
@@ -504,24 +509,23 @@ informação''\footnote{\url{https://feup.libguides.com/plagio/citar}}.
 De seguida é ilustrado como incluir código no documento.
 \end{info}
 
+Listing~\ref{code:useless} 
 \lipsum[8]
 
-\begin{lstlisting}[language=Python, caption=Python example]
-# take the users input
+\begin{lstlisting}[language=Python, caption=Python example, label=code:useless]
+# Take the user's input
 words = input("Enter the text to translate to pig latin: ")
 print(f"You entered: {words}")
 
-# now, break apart the words into a list
+# Break apart the words into a list
 words = words.split(' ')
 
-# let's use the list to translate words greater than 3 characteres
-for i in words:
-    if len(i) >= 3:
-        i = i + "%say" % (i[0])
-        i = i[1:]
-        print(i)
-    else:
-        pass
+# Use a list comprehension to translate words greater than or equal to 3 characters
+translated_words = [(w[1:] + w[0] + "ay") for w in words if len(w) >= 3 ]
+
+# Print each translated word
+for word in translated_words:
+    print(word)
 \end{lstlisting}
 
 \subsection*{Uso das macros}
@@ -529,11 +533,28 @@ for i in words:
 \begin{info}
 De seguida é ilustrada a utlização de macros \LaTeX{} definidas no
 preâmbulo.
+De salientar o uso da macro \verb!\class{}! para classes, métodos e componentes.
 \end{info}
 
-O \windspt, retirado do \windscannerpt, usa o \svg\ \ldots
+O \windspt, retirado do \windscannerpt, usa o \svg\ \ldots\ como em \class{Student.calculate-age()}.
 
 \lipsum[9]
+
+\subsection*{O travessão}
+
+Sobre o uso do hífen e do travessão\footnote{"Ciberdúvidas da Língua Portuguesa", \url{https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/o-uso-do-hifen-e-do-travessao/31251}}: 
+\begin{enumerate}
+    \item O hífen (Alt + 0045): sem espaços em branco (-);
+    \item O travessão (ou travessão duplo)/em-dash(1) (Alt + 0151): em português, envolto em espaços em branco (---);
+    \item O traço de ligação/en dash (Alt + 150): sem espaços em branco (--);
+    \item O sinal matemático de subtração: sem espaços em branco (–).
+\end{enumerate}
+
+\subsection*{As aspas}
+
+Sobre as aspas  em \LaTeX, ou é usado o slifo diretamente, ou então são feitas com o acento para trás no início e a plica no fim, como em ``exemplo''\footnote{What is the best way to use quotation mark glyphs? 
+\url{https://tex.stackexchange.com/questions/531/what-is-the-best-way-to-use-quotation-mark-glyphs}}.
+
 
 \begin{info}
 As partes componentes subsequentes que constituem o corpo do texto
@@ -669,9 +690,7 @@ Identificar limitações do trabalho realizado e ideias de melhorias e trabalho 
 %%------------------------------- Bibliography --------------------------------
 
 \renewcommand{\bibname}{Referências bibliográficas}
-\bibliographystyle{chicago}
-%\bibliographystyle{plain}
-\bibliography{refs}                       % entries are in the refs.bib file
+\printbibliography
 \addcontentsline{toc}{chapter}{\refname}  % add it to table of contents
 
 \begin{info}
