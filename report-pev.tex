@@ -2,14 +2,14 @@
 %% 
 %% FEUP, JCL, Thu Dec 14 15:23:03 2023
 %%
-%% PLEASE send improvements to jlopes at fe.up.pt (up till 2026 :-)
+%% PLEASE send improvements to jlopes at fe.up.pt (up till 2028 :-)
 
 \documentclass[11pt,a4paper]{report}
 
 %%------------------------------- preamble ------------------------------------
 
 %% comment next for EN
-\usepackage[portuges]{babel}      % language PT
+\usepackage[portuges]{babel}      % language PT 
 \usepackage[utf8]{inputenc}       % accents
 \usepackage[T1]{fontenc}          % PS fonts
 \usepackage{newtxtext,newtxmath}  % do not use CM fonts
@@ -197,6 +197,9 @@ Podem fazer-se numa página autónoma ou incluir-se na introdução.
 \end{infoopt}
 
 %%------------------------------- table of contents ---------------------------
+
+%% redefine tableofcontents text, ONLY for PT
+\renewcommand{\contentsname}{Índice}
 
 \tableofcontents
 
