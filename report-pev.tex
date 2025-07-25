@@ -4,6 +4,10 @@
 %%
 %% PLEASE send improvements to jlopes at fe.up.pt (up till 2028 :-)
 
+%% v2025:
+%% - added support for SI Unit rules and style conventions
+%% - added acronyms using the corresponding package
+
 \documentclass[11pt,a4paper]{report}
 
 %%------------------------------- preamble ------------------------------------
@@ -22,15 +26,25 @@
 \usepackage{subcaption}           % for subfigures and the like
 \usepackage{longtable}            % tables that continue to the next page
 \usepackage{multirow}             % tabular cells spanning multiple rows
+\usepackage{booktabs}             % to create professional-quality tables
 \usepackage[table]{xcolor}        % driver-independent color extensions
 \usepackage{lipsum}               % loren dummy text
 \setlength{\marginparwidth}{2cm}  % todonotes' requirements
 \usepackage{todonotes}            % todo's
 \usepackage{csquotes}             % context sensitive quotation facilities
 \usepackage[backend=biber,authordate]{biblatex-chicago}  % Chicago Manual of Style
+\usepackage{pgfgantt}             % Gantt charts
+\usepackage[printonlyused]{acronym} % for acronyms
+\usepackage{eurosym}              % for the Euro currency symbol
+\usepackage{siunitx}              % for SI Unit rules and style conventions
+% \sisetup{
+%   group-separator = {\,},         % a thin space
+%   group-minimum-digits = 4        % enable grouping for numbers ≥ 1000
+% }
+\DeclareSIUnit{\eurocurrency}{\text{\euro}}  % for the Euro symbol in siunitex
 
 %% document dimensions
-\usepackage[a4paper, left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=6mm,footskip=12mm]{geometry}
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=6mm,footskip=12mm]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1ex}
 
@@ -115,10 +129,8 @@
 \newcommand{\svg}{\class{SVG}}
 
 %% my environments for infos
-\newenvironment{info}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO:} \begin{em} #1}
-                        {\vspace*{3mm}\end{em} ]}
-\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO (elemento opcional):} \begin{em} #1}
-                        {\vspace*{3mm}\end{em} ]}
+\newenvironment{info}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO:} \begin{em} #1}{\vspace*{3mm}\end{em} ]}
+\newenvironment{infoopt}[1]{\vspace*{6mm}\color{blue}[ \textbf{INFO (elemento opcional):} \begin{em} #1}{\vspace*{3mm}\end{em} ]}
 
 %%------------------------------- document-------------------------------------
 
@@ -182,8 +194,10 @@ Publicação'', secção:
 \todo[inline]{Escrever o Resumo, mas só no fim.}
 
 %\vspace{\fill}
-%{\Large \textbf{Palavras-chave}:} palavra1, palavra2, palavra3, palavra4
+%{\Large \textbf{Palavras-chave}:} Palavra1, Palavra2, Palavra3, Palavra4
 %\vspace*{24mm}
+
+\acresetall %% to reset the acronym usage
 
 %%------------------------------- Acknowledgments -----------------------------
 
@@ -242,13 +256,16 @@ elementos complementares à compreensão do texto.
 \chapter*{Lista de acrónimos}
 %\addcontentsline{toc}{chapter}{Lista de acrónimos}
 
-\begin{flushleft}
-\begin{tabular}{l p{0.8\linewidth}}
-ADT      & Abstract Data Type\\
-API      & Application Programming Interface\\
-WWW      & World Wide Web
-\end{tabular}
-\end{flushleft}
+\begin{acronym}[ASCII] % The longest acronym goes here (for alignment)
+  \acro{API}{\textit{Application Programming Interface}}
+  \acro{IA}{Inteligência Artificial}
+  \acro{ASCII}{American Standard Code for Information Interchange}
+  \acro{GPU}{\textit{Graphics Processing Unit}}
+  \acro{FEUP}{Faculdade de Engenharia da Universidade do Porto}
+  \acro{ML}{\textit{Machine Learning}}
+  \acro{PLN}{Processamento de Linguagem Natural}
+  \acro{WWW}{World Wide Web}
+\end{acronym}
 
 \begin{infoopt}
 Justifica-se se estes elementos (acrónimos, unidades, símbolos)
@@ -314,10 +331,10 @@ perspetiva genérica.
 Não se deve antecipar detalhes sobre o que é explicado nas secções
 posteriores. 
 Se for pertinente, pode-se indicar ainda qual o público a que se
-destina\footnote{%
+destina.
 Para saber mais consulte o tutorial online 
 ``\href{https://docs.google.com/document/d/1TDC1behVq8x7fQL4CcPEEh_np5GXviJevQxnQ9gbiJs/edit}
-{Guia de Apoio à Publicação}''.}.
+{Guia de Apoio à Publicação}''.
 \end{info}
 
 \section{Contexto}
@@ -339,245 +356,25 @@ realizado (qual é o problema abordado e porque é que é importante).
 Indicar os objetivos do trabalho e os resultados esperados.
 \end{info}
 
+\section{Estrutura do relatório}
+	
+\begin{info}
+  Descrever brevemente a estrutura do relatório.
+
+  Será expectável que o relatório tenha entre 10 a 25 páginas (em formato A4, coluna única, com um tamanho de letra não excedendo os 12pt no texto de parágrafo), já contando com anexos. 
+\end{info}
+
+Para além da introdução, este relatório está organizado em mais 4 capítulos.
+No Capítulo~\ref{chap:metodo} \ldots
+
 %%------------------------------- DELETEME ------------------------------------
 
 \newpage  % don't do this
-\section*{Exemplos}
-
-\todo[inline]{Remover a secção ``Exemplos'', quando já não for necessária.}
-
-\begin{info}
-  São ilustradas de seguida algumas partes do documento.
-  
-  Esta secção não aparece no documento final!
-\end{info}
-
-\subsection*{Equações}
-
-\begin{info}
-Este texto é apenas um exemplo que precede uma equação.
-\end{info}  
-
-Equações simples podem ser inseridas em linha com o texto: 
-a reta é \(y=mx+b\).
-
-Equações mais complicadas devem ser separadas em linhas individuais e
-numeradas sequencialmente à direita dentro de parêntesis.
-Esta é a equação 2º grau genérica:
-
-\begin{equation} \label{eq:1}
-  ax^2+bx+cx=0
-\end{equation}
-
-Onde $a$ é o coeficiente de 2º grau; $b$ o de 1º grau; $c$ o
-coeficiente independente da variável $x$, a determinar.
-
-As equações devem ser referidas mantendo o seu número.
-Por exemplo, a Equação~\ref{eq:2} resolve problemas formulados tal como 
-mostrado na Equação~\ref{eq:1}.
-
-\begin{equation} \label{eq:2}
-  x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}
-\end{equation}
-
-\subsection*{Figuras e tabelas}
-
-Todas as figuras e tabelas devem ser obrigatoriamente legendadas e
-numeradas sequencialmente:
-
-\begin{itemize}
-\item as figuras devem ser legendadas por baixo;
-\item as tabelas devem ser legendadas no topo. 
-\end{itemize}
-
-Mantenha as figuras centradas e em linha com o texto para que a
-legenda apareça sempre colada com a imagem.
-
-\begin{info}
-As figuras devem flutuar livremente na página e ser referidas e
-descritas no texto, com as fontes devidamente explicitadas, para
-evitar o plágio.
-\end{info}
-
-Como exemplo, a Figura~\ref{fig:campus} (retirada de
-\url{www.fe.up.pt}) mostra o \emph{campus} da FEUP. 
-
-\lipsum[1]
-
-\begin{figure}
-\centering
-\includegraphics[width=0.72\textwidth]{campus}
-\caption{Fotografia aérea do Campus da FEUP.} \label{fig:campus}
-\end{figure}
-
-\lipsum[2]
-
-\begin{info}
-Pode ser reservado espaço para colocar, no futuro, uma figura; por
-exemplo, a Figura~\ref{fig:natal}.
-\end{info}
-
-\lipsum[3]
-
-\begin{figure} [b]
-  \centering
-  \missingfigure{Inserir a figura do Natal.}
-  \caption{O Natal no Campus da FEUP.} \label{fig:natal}
-\end{figure}
-
-\lipsum[4]
-
-\begin{info}
-As tabelas devem flutuar livremente na página e ser referidas e
-descritas no texto, com as fontes devidamente explicitadas, para
-evitar o plágio.
-\end{info}
-
-A Tabela~\ref{tab:feup} (excerto adaptado de ``A FEUP em números'', 2011)
-serve para exemplificar como mostrar alguns valores que, neste caso, têm
-a ver com alguns dados numéricos associados a recursos e investimentos
-da FEUP no ano de 2011. 
-
-\lipsum[4]
-
-\begin{table}
-  \centering
-  \caption{Recursos Físicos da FEUP}
-  \begin{tabular}{| l | c |}
-    \hline
-    \textbf{Designação} & \textbf{Quantidade}\\\hline
-    \hline
-    Área total do campus FEUP & 93 918 $m^2$\\\hline
-    Espaços verdes & 23 000 $m^2$\\\hline
-    Número de computadores dedicados ao ensino & 1 815\\\hline
-    Investimento em equipamentos de laboratório & 1,46 M€\\
-    \hline
-  \end{tabular}
-  \label{tab:feup}
-\end{table}
-
-\lipsum[6]
-
-\subsection*{Citações}
-
-À medida que escreve o texto do relatório, deve indicar os trabalhos
-de outros autores em que se baseia, sob a forma de citações.
-Isto consiste em indicar de forma abreviada as fontes usadas às quais
-foi buscar informação adicional para desenvolver o tema do seu
-relatório.
-
-Existem duas formas principais de citar:
-\begin{itemize}
-\item por \textbf{paráfrase}: interpretação do conteúdo original por
-  palavras diferentes das da fonte consultada, indicando a fonte logo
-  a seguir; ou 
-\item 
-  por \textbf{transcrição}: uso de um excerto do conteúdo original
-  apresentando-o entre aspas, indicando a fonte logo a seguir.
-\end{itemize}
-
-As citações devem obedecer a um estilo normalizado.
-De entre os muitos que existem, a Biblioteca da FEUP aconselha o
-estilo Chicago (formato autor-data).
-
-\begin{info}
-De seguida exemplificam-se, ao acaso, algumas citações (por paráfrase)
-de acordo com esse estilo.
-\end{info}
-
-A decisão de escolha de um tema para um trabalho académico pode
-variar~\cite{kn:Bel02-book}.
-O tema pode ser pensado e escolhido pelo próprio estudante, ou a
-partir de uma lista de temas já concebidos, com potencial interesse
-para estudo~\cite{kn:GLPR14-joPhysics}.
-
-A cada citação ao longo do texto deve corresponder uma referência
-indicada na lista final de referências
-bibliográficas~\cite{kn:Lip08,kn:MSS+12-wemep,kn:VKL+18-dtu}. 
-
-É importante não esquecer que também as figuras (imagens, tabelas,
-gráficos, etc.) provenientes de obras de outros autores (por exemplo 
-obtidas através da Internet) devem ser citadas sempre, após as
-respetivas legendas~\cite{kn:GLPC22-torque}.
-
-Para saber mais sobre este assunto e ver exemplos, consulte o guia
-``Evitar o plágio: boas práticas no uso da
-informação''\footnote{\url{https://feup.libguides.com/plagio/citar}}.  
-
-\lipsum[7]
-
-\subsection*{Código}
-
-\begin{info}
-De seguida é ilustrado como incluir código no documento.
-\end{info}
-
-Listing~\ref{code:useless} 
-\lipsum[8]
-
-\begin{lstlisting}[language=Python, caption=Python example, label=code:useless]
-# Take the user's input
-words = input("Enter the text to translate to pig latin: ")
-print(f"You entered: {words}")
-
-# Break apart the words into a list
-words = words.split(' ')
-
-# Use a list comprehension to translate words greater than or equal to 3 characters
-translated_words = [(w[1:] + w[0] + "ay") for w in words if len(w) >= 3 ]
-
-# Print each translated word
-for word in translated_words:
-    print(word)
-\end{lstlisting}
-
-\subsection*{Uso das macros}
-
-\begin{info}
-De seguida é ilustrada a utlização de macros \LaTeX{} definidas no
-preâmbulo.
-De salientar o uso da macro \verb!\class{}! para classes, métodos e componentes.
-\end{info}
-
-O \windspt, retirado do \windscannerpt, usa o \svg\ \ldots\ como em \class{Student.calculate-age()}.
-
-\lipsum[9]
-
-\subsection*{O travessão}
-
-Sobre o uso do hífen e do travessão\footnote{"Ciberdúvidas da Língua Portuguesa", \url{https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/o-uso-do-hifen-e-do-travessao/31251}}: 
-\begin{enumerate}
-    \item O hífen (Alt + 0045): sem espaços em branco (-);
-    \item O travessão (ou travessão duplo)/em-dash(1) (Alt + 0151): em português, envolto em espaços em branco (---);
-    \item O traço de ligação/en dash (Alt + 150): sem espaços em branco (--);
-    \item O sinal matemático de subtração: sem espaços em branco (–).
-\end{enumerate}
-
-\subsection*{As aspas}
-
-Sobre as aspas  em \LaTeX, ou é usado o slifo diretamente, ou então são feitas com o acento para trás no início e a plica no fim, como em ``exemplo''\footnote{What is the best way to use quotation mark glyphs? 
-\url{https://tex.stackexchange.com/questions/531/what-is-the-best-way-to-use-quotation-mark-glyphs}}.
-
-
-\begin{info}
-As partes componentes subsequentes que constituem o corpo do texto
-devem ser estruturadas em secções, estimando-se que até 3 níveis seja
-o suficiente para este tipo de trabalho.
-
-Para saber mais consulte o tutorial online 
-``\href{https://docs.google.com/document/d/1TDC1behVq8x7fQL4CcPEEh_np5GXviJevQxnQ9gbiJs/edit}
-{Guia de Apoio à Publicação}''.
-Note-se que as seções aí indicadas podem ser adaptadas em função do tema
-ou profundidade do estudo a desenvolver.
-\end{info}
-
-\begin{info}
-Não é costume haver cabeçalhos de secções seguidas sem texto.
-\end{info}
+\include{examples}
 
 %%------------------------------- chapter ------------------------------------
 
-\chapter{Metodologia}
+\chapter{Metodologia} \label{chap:metodo}
 
 Neste capítulo é descrita a metodologia seguida, são enumerados os
 principais intervenientes no projeto e é feito o registo das
@@ -699,7 +496,7 @@ Identificar limitações do trabalho realizado e ideias de melhorias e trabalho 
 \begin{info}
 Na lista final de referências devem constar os trabalhos dos autores
 citados de forma abreviada ao longo do texto, obtida automaticamente
-com o \class{BibTeX}.
+com o \class{BibLaTeX}\footnote{\url{https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX}}.
 A referência bibliográfica é a forma mais desenvolvida de indicar as
 fontes de informação em que se baseou. 
 \end{info}
