@@ -2,10 +2,22 @@
 
 SRC=report-pev
 
+## typeset using latexmk
+
 latexmk:
 	latexmk -pdf -recorder -pvc $(SRC).tex
+
+## typeset using pdflatex
+
+pdflatex:
+	pdflatex $(SRC)
+
+## clean temporary files
 
 clean: 
 	-rm  -f \
 	*.aux *.log *.nav *.log *.toc *.snm *.out *.dvi *.ps \
-	*latexmk *.bcf *.fls *.bbl *.blg *.lof *.lot *.tdo *.xml
+	*latexmk *.bcf *.fls *.bbl *.blg *.lof *.lot *.tdo *.xml \
+	$(SRC)~
+
+.PHONY: clean
