@@ -20,6 +20,6 @@ clean:
 
 distrib: clean
 	rm -f ../$(DIST)
-	zip -9r ../$(DIST) . -x makefile.sh ".git/*"
+	zip -9r ../$(DIST) . -x makefile.mk README.md ".git/*"
 
 .PHONY: clean distrib

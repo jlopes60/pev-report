@@ -1,21 +1,33 @@
 %% O Mendeley permite manter a bibliografia, anotar os PDF da recolha bibliográfica 
 %% e sincronizar com ficheiros BibTeX
 
+%% exemplo de livro
 @Book{kn:Bel02-book,
   title = {Como realizar um projeto de investigação},
   author = {Bell, Judith},
   publisher = {Gradiva. Lisboa},
-  year = {2002}
+  year = 2002
 }
 
-@techreport{kn:VKL+18-dtu,
-  title = {{e-WindLidar: making wind lidar data FAIR}},
-  author = {Vasiljevic, Nikola and Lopes, J. Correia and Gomes, Daniel},
-  institution = {DTU, Denmark},
-  doi = {10.5281/zenodo.2478051},
-  year = {2018}
+%% exemplo de fonte da imagem
+@Misc{kn:figura,
+  title = {{Faculdade de Engenharia celebra 20 anos no Polo da Asprela}},
+  author = {{Espaço de Arquitetura}},
+  year = 2020,
+  url = {https://espacodearquitetura.com/noticias/faculdade-de-engenharia-celebra-20-anos-no-polo-da-asprela/},
+  urldate = {2023-11-11}
 }
 
+%% exemplo de fonte dos dados da tabela
+@Misc{kn:feup,
+  title = {{FEUP} em Números},
+  author = {FEUP},
+  year = 2023,
+  url = {https://sigarra.up.pt/feup/pt/web_base.gera_pagina?p_pagina=258031},
+  urldate = {2023-11-11}
+}
+
+%% exemplo de artigo científico
 @article{kn:GLPR14-joPhysics,
   title = {{WindS@UP: The e-Science Platform for WindScanner.eu}},
   author = {Gomes, Filipe and Lopes, J. Correia and Palma, Jos{\'{e}} Laginha},
@@ -26,46 +38,42 @@
   publisher = {Poster presented at Torque2014: The Science of Making Torque From Wind, 2014 --- 17-20 June 2014 Technical University of Denmark, Lyngby, Copenhagen},
   volume = {524},
   pages = {012006},
-  year = {2014}
+  year = 2014
 }
 
+%% exemplo de comunicação em conferência
 @inproceedings{kn:MSS+12-wemep,
   title = {{WindScanner.eu --- a new Remote Sensing Research Infrastructure for On- and Offshore Wind Energy}},
   author = {Mikkelsen, Torben},
   booktitle = {Proceedings of the International Conference on Wind Energy: Materials, Engineering, and Policies (WEMEP-2012)},
-  url = {www.windscanner.eu},
-  year = {2012}
+  url = {https://www.windscanner.eu},
+  year = 2012
 }
 
+%% exemplo de relatório técnico
+@techreport{kn:VKL+18-dtu,
+  title = {{e-WindLidar: making wind lidar data FAIR}},
+  author = {Vasiljevic, Nikola and Lopes, J. Correia and Gomes, Daniel},
+  institution = {DTU, Denmark},
+  doi = {10.5281/zenodo.2478051},
+  year = 2018
+}
+
+%% exemplo de artigo científico
 @inproceedings{kn:GLPC22-torque,
   title = {{\windspt{} e-Science platform for wind measurement campaigns}},
   author = {Gomes, D. and Lopes, J. Correia and Palma},
   booktitle = {TORQUE2022 (EAW's Science of Making Torque from Wind)},
-  year = {2022}
+  year = 2022
 }
 
+%% outro
 @Misc{kn:Lip08,
   title = {Lorem Ipsum},
   author = {Lipsum},
+  year = 2023,
   url = {http://www.lipsum.com/}, 
-  urldate = {2023-11-15},
-  year = {2023}
-}
-
-%% exemplo de fonte da imagem
-@Misc{kn:figura,
-  title = {{Faculdade de Engenharia celebra 20 anos no Polo da Asprela}},
-  author = {{Espaço de Arquitetura}},
-  howpublished = {Disponível em \url{https://espacodearquitetura.com/noticias/faculdade-de-engenharia-celebra-20-anos-no-polo-da-asprela/}},
-  year = {2020}
-}
-
-%% exemplo de fonte dos dados da tabela
-@Misc{kn:feup,
-  title = {{FEUP} em Números 2023},
-  author = {FEUP},
-  howpublished = {Disponível em \url{https://sigarra.up.pt/feup/pt/web_base.gera_pagina?p_pagina=258031}},
-  year = {2023}
+  urldate = {2023-11-15}
 }
 
 %% example of MsC dissertation
@@ -83,4 +91,43 @@
   year = {2011},
   type = {standard},
   number = {ISO 19156:2011}
+}
+
+@misc{gantt,
+  author = {wikipedia},
+  title = {Gantt chart},
+  url = {https://en.wikipedia.org/wiki/Gantt\_chart},
+  urldate = {2023-03-15},
+  year = {2023}
+}
+
+@article{despa2014comparative,
+  title={Comparative study on software development methodologies},
+  author={Despa, Mihai Liviu},
+  journal={Database Systems Journal},
+  volume={5},
+  number={3},
+  pages={37--56},
+  year={2014}
+}
+
+@article{knuth:1984,
+  title={Literate Programming},
+  author={Donald E. Knuth},
+  journal={The Computer Journal},
+  volume={27},
+  number={2},
+  pages={97--111},
+  year={1984},
+  publisher={Oxford University Press}
+}
+
+@inproceedings{lesk:1977,
+  title={Computer Typesetting of Technical Journals on {UNIX}},
+  author={Michael Lesk and Brian Kernighan},
+  booktitle={Proceedings of American Federation of Information Processing
+             Societies: 1977 National Computer Conference},
+  pages={879--888},
+  year={1977},
+  address={Dallas, Texas}
 }

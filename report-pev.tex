@@ -28,6 +28,7 @@
 \usepackage{multirow}             % tabular cells spanning multiple rows
 \usepackage{booktabs}             % to create professional-quality tables
 \usepackage[table]{xcolor}        % driver-independent color extensions
+\usepackage{xurl}                 % URL-sensitive line breaks
 \usepackage{lipsum}               % loren dummy text
 \setlength{\marginparwidth}{2cm}  % todonotes' requirements
 \usepackage{todonotes}            % todo's
@@ -145,7 +146,7 @@
 \center
 
 \vspace{-15mm}
-{\large \textbf{\textsc{\school}}}\\
+{\Large \textbf{\textsc{\school}}}\\
 
 \vfill
 
@@ -160,9 +161,11 @@
 
 \vfill
 
-{\large \degree}\\[8mm]
+{\large \textbf{\degree}}\\[8mm]
 {\large \textbf{Supervisor}: \supervisor}\\[2mm]
 {\large \textbf{Tutor}: \tutor}\\[8mm]
+
+\vspace{12mm}
 
 %\renewcommand{\today}{15 de dezembro de 2023}
 \today
@@ -256,12 +259,15 @@ elementos complementares à compreensão do texto.
 \chapter*{Lista de acrónimos}
 %\addcontentsline{toc}{chapter}{Lista de acrónimos}
 
-\begin{acronym}[ASCII] % The longest acronym goes here (for alignment)
+%% sort acronym entries manualy yourself
+%% only the acronyms used in the text will be printed
+
+\begin{acronym}[123456] % The longest acronym goes here (for alignment)
   \acro{API}{\textit{Application Programming Interface}}
-  \acro{IA}{Inteligência Artificial}
   \acro{ASCII}{American Standard Code for Information Interchange}
   \acro{GPU}{\textit{Graphics Processing Unit}}
   \acro{FEUP}{Faculdade de Engenharia da Universidade do Porto}
+  \acro{IA}{Inteligência Artificial}
   \acro{ML}{\textit{Machine Learning}}
   \acro{PLN}{Processamento de Linguagem Natural}
   \acro{WWW}{World Wide Web}
